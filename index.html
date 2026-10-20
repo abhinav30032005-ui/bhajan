@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>YouTube Offline</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-header">
+    <div class="brand">
+      <div class="brand-icon"><div class="brand-triangle"></div></div>
+      <span>YouTube</span>
+    </div>
+    <button class="add-btn" id="openPickerBtn">+ Add Videos</button>
+    <input type="file" id="fileInput" accept="video/*" multiple>
+  </div>
+
+  <div class="player-wrapper" id="playerWrapper">
+    <video id="mainVideo" playsinline preload="auto"></video>
+    
+    <div class="touch-surface" id="touchSurface"></div>
+
+    <div class="controls-overlay" id="controlsOverlay">
+      <div class="overlay-top">
+        <span class="overlay-title" id="overlayTitle">Loading video...</span>
+      </div>
+
+      <div class="overlay-center">
+        <button class="center-btn side" id="prevTrackBtn" aria-label="Previous">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+          </svg>
+        </button>
+
+        <button class="center-btn main" id="playPauseBtn" aria-label="Play/Pause">
+          <svg id="playIcon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <svg id="pauseIcon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+
+        <button class="center-btn side" id="nextTrackBtn" aria-label="Next">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="m6 18 8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="overlay-bottom">
+        <div class="time-bar">
+          <span id="currentTime">0:00</span>
+          <span id="durationTime">0:00</span>
+        </div>
+        <div class="scrub-container" id="scrubContainer">
+          <div class="scrub-track">
+            <div class="scrub-progress" id="scrubProgress">
+              <div class="scrub-thumb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YouTube Double Tap Skip Ribbons -->
+    <div class="double-tap-ripple left" id="rippleLeft">
+      <span>◀◀◀</span>
+      <span>10 seconds</span>
+    </div>
+    <div class="double-tap-ripple right" id="rippleRight">
+      <span>▶▶▶</span>
+      <span>10 seconds</span>
+    </div>
+  </div>
+
+  <div class="compact-info">
+    <div class="video-title" id="displayTitle">No video loaded</div>
+    <div class="channel-row">
+      <div class="channel-avatar">ॐ</div>
+      <div class="channel-name">Mom's Daily Prayer</div>
+    </div>
+  </div>
+
+  <div class="playlist-section">
+    <div class="playlist-header">Saved Videos (Plays Offline)</div>
+    <div id="playlistContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
